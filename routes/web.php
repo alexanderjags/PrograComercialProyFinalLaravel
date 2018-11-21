@@ -11,6 +11,25 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+  //  return view('welcome');
+//});
+
+//Route::get('/hello', function () {
+    //return view('Hello World');
+  //  return '<h1>hola puto<h1>';
+//});
+Route::get('/', 'PagesController@index');
+Route::get('/about', 'PagesController@about');
+Route::get('/services', 'PagesController@services');
+
+Route::resource('registros','RegistrosController');
+Route::resource('ahijados','AhijadoController');
+Auth::routes();
+
+Route::get('/dashboard', 'DashboardController@index');
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
